@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# venv
+venv/
+.venv/
+
+# logs + slurm
+logs/
+*.log
+*.out
+*.err
+slurm-*.out
+
+# UMLS API cache (regenerable; ~hundreds of MB)
+cache/
+hf-cache/
+hf_cache/
+
+# build artifacts (regenerable from the build script)
+vector_db/output/umls_atoms.faiss
+vector_db/output/umls_atoms.jsonl
+vector_db/output/umls_metadata.jsonl
+vector_db/output/embeddings.npy
+
+# verbose per-turn debug traces (kept only locally)
+conversations/*_debug.json
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+*_debug.json
+
+# secrets — never commit
+.env
+*.pem
+*.key
+*.log

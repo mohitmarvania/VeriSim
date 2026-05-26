@@ -1,0 +1,34 @@
+# VeriSim — pinned dependencies (combined: vector_db build + pipeline).
+#
+# We pin torch to the CUDA-12.6 wheel because the HPC compute nodes we ran
+# on ship NVIDIA driver 12.6; the default `pip install torch` pulls CUDA-13
+# wheels that fail with "driver too old" on those nodes. Install with the
+# matching index URL:
+#
+#     pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
+
+# ---- Core numerics + Llama inference ----
+torch==2.6.0+cu126
+# transformers + accelerate + bitsandbytes — used for 70B 4-bit inference
+# fallback. (vLLM 0.21 was tried first but bundles libcudart.so.13 which
+# cannot load on a CUDA-12.6 driver; see docs/reproducibility.md.)
+transformers==5.9.0
+accelerate==1.13.0
+bitsandbytes==0.49.2
+# vLLM (optional, fast path). Compatible only on CUDA-13 driver hosts.
+# vllm==0.21.0
+
+# ---- Embedding model for the vector DB (BioLORD-2023, 768-d) ----
+sentence-transformers==5.5.1
+
+# ---- FAISS for the IndexFlatIP retrieval ----
+faiss-cpu==1.14.2
+
+# ---- UMLS REST client deps ----
+requests==2.34.2
+tenacity==9.1.4              # exponential-backoff retry around the UMLS REST client
+tqdm==4.67.3
+
+# ---- General ----
+numpy==2.4.6
+huggingface-hub==1.16.1

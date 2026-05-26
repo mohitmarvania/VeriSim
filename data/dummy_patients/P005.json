@@ -1,0 +1,62 @@
+{
+  "patient_id": "P005",
+  "demographics": {
+    "age": 27,
+    "sex": "M"
+  },
+  "chief_complaint": "Feeling down and unable to sleep for several weeks",
+  "symptoms": [
+    {
+      "text": "depressed mood",
+      "cui": "C0344315",
+      "severity": "moderate",
+      "duration": "several weeks"
+    },
+    {
+      "text": "insomnia",
+      "cui": "C0917801",
+      "severity": "moderate"
+    },
+    {
+      "text": "anxiety",
+      "cui": "C0003467",
+      "severity": "moderate"
+    },
+    {
+      "text": "fatigue",
+      "cui": "C0015672",
+      "severity": "moderate"
+    },
+    {
+      "text": "loss of appetite",
+      "cui": "C0003123",
+      "severity": "mild"
+    }
+  ],
+  "medications": [
+    {
+      "text": "sertraline",
+      "cui": "C0074393",
+      "dose": "50mg",
+      "frequency": "daily"
+    }
+  ],
+  "conditions": [
+    {
+      "text": "major depressive disorder",
+      "cui": "C1269683",
+      "diagnosed_year": 2023
+    },
+    {
+      "text": "generalized anxiety disorder",
+      "cui": "C0270549",
+      "diagnosed_year": 2023
+    }
+  ],
+  "procedures": [],
+  "allergies": [],
+  "noise_profile": [
+    {"type": "health_literacy", "level": 3},
+    {"type": "communication_style", "level": 2}
+  ]
+}

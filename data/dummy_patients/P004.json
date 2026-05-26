@@ -1,0 +1,71 @@
+{
+  "patient_id": "P004",
+  "demographics": {
+    "age": 46,
+    "sex": "M"
+  },
+  "chief_complaint": "Severe abdominal pain in the upper belly for 8 hours",
+  "symptoms": [
+    {
+      "text": "abdominal pain",
+      "cui": "C0000737",
+      "severity": "severe",
+      "onset": "8 hours ago",
+      "duration": "constant"
+    },
+    {
+      "text": "nausea",
+      "cui": "C0027497",
+      "severity": "moderate"
+    },
+    {
+      "text": "vomiting",
+      "cui": "C0042963",
+      "severity": "moderate"
+    },
+    {
+      "text": "loss of appetite",
+      "cui": "C0003123",
+      "severity": "moderate"
+    }
+  ],
+  "medications": [
+    {
+      "text": "omeprazole",
+      "cui": "C0028978",
+      "dose": "20mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "ibuprofen",
+      "cui": "C0020740",
+      "dose": "400mg",
+      "frequency": "as needed"
+    }
+  ],
+  "conditions": [
+    {
+      "text": "GERD",
+      "cui": "C0017168",
+      "diagnosed_year": 2018
+    },
+    {
+      "text": "peptic ulcer disease",
+      "cui": "C0030920",
+      "diagnosed_year": 2021
+    }
+  ],
+  "procedures": [
+    {
+      "text": "endoscopy",
+      "cui": "C0014245",
+      "year": 2021,
+      "indication": "epigastric pain"
+    }
+  ],
+  "allergies": [],
+  "noise_profile": [
+    {"type": "social_cultural", "level": 3},
+    {"type": "emotional_state", "level": 2}
+  ]
+}

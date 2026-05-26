@@ -1,0 +1,40 @@
+You are a medical claim extractor.
+
+This prompt corresponds to the Verifier Call 1 (Claim Extraction) prompt
+described in the paper (Appendix A, Figure A2).
+
+=== ROLE ===
+Given a doctor's question and the patient's response, decompose the
+patient's response into atomic medical claims that can be independently
+verified.
+
+=== INPUT ===
+Doctor's question: {doctor_question}
+Patient's response: {patient_utterance}
+
+=== DEFINITION OF AN ATOMIC CLAIM ===
+An atomic claim is a single, self-contained medical assertion. Examples:
+  o "patient has chest tightness"
+  o "patient takes a beta blocker"
+  o "patient had a coronary stent placed"
+  o "patient is allergic to penicillin"
+
+Discard non-medical content:
+  o Emotional expressions ("I'm so scared", "please help me")
+  o Conversational filler ("well, uh, you know")
+  o Hedging without medical content ("maybe", "I think so")
+  o Questions back to the doctor
+
+=== INSTRUCTIONS ===
+  1. Identify every medically meaningful assertion in the response.
+  2. Express each as a single, self-contained statement in third person.
+  3. Preserve the patient's colloquial phrasing where they used it
+     ("blood pressure pill" rather than rewriting to "antihypertensive
+     medication").
+  4. If the response contains no medical claims, return an empty list.
+
+=== OUTPUT FORMAT ===
+Return a JSON list of strings, one per claim. Output ONLY the JSON, with
+no preamble.
+
+["claim 1", "claim 2", ...]

@@ -1,0 +1,109 @@
+{
+  "patient_id": "P003",
+  "demographics": {
+    "age": 82,
+    "sex": "F"
+  },
+  "chief_complaint": "Increased confusion and unsteady walking for 3 days",
+  "symptoms": [
+    {
+      "text": "confusion",
+      "cui": "C0009676",
+      "severity": "moderate",
+      "onset": "3 days ago"
+    },
+    {
+      "text": "unsteady gait",
+      "cui": "C0231686",
+      "severity": "moderate"
+    },
+    {
+      "text": "fatigue",
+      "cui": "C0015672",
+      "severity": "moderate"
+    },
+    {
+      "text": "decreased appetite",
+      "cui": "C0003123",
+      "severity": "mild"
+    }
+  ],
+  "medications": [
+    {
+      "text": "warfarin",
+      "cui": "C0043031",
+      "dose": "5mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "donepezil",
+      "cui": "C0527316",
+      "dose": "10mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "metformin",
+      "cui": "C0025598",
+      "dose": "500mg",
+      "frequency": "BID"
+    },
+    {
+      "text": "amlodipine",
+      "cui": "C0051696",
+      "dose": "5mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "furosemide",
+      "cui": "C0016860",
+      "dose": "20mg",
+      "frequency": "daily"
+    }
+  ],
+  "conditions": [
+    {
+      "text": "Alzheimer disease",
+      "cui": "C0002395",
+      "diagnosed_year": 2019
+    },
+    {
+      "text": "atrial fibrillation",
+      "cui": "C0004238",
+      "diagnosed_year": 2014
+    },
+    {
+      "text": "type 2 diabetes",
+      "cui": "C0011860",
+      "diagnosed_year": 2008
+    },
+    {
+      "text": "heart failure",
+      "cui": "C0018801",
+      "diagnosed_year": 2017
+    },
+    {
+      "text": "hypertension",
+      "cui": "C0020538",
+      "diagnosed_year": 2000
+    }
+  ],
+  "procedures": [
+    {
+      "text": "knee replacement",
+      "cui": "C0086511",
+      "year": 2015,
+      "indication": "osteoarthritis"
+    }
+  ],
+  "allergies": [
+    {
+      "text": "sulfa drugs",
+      "cui": "C0038760",
+      "reaction": "rash"
+    }
+  ],
+  "noise_profile": [
+    {"type": "memory_recall", "level": 3},
+    {"type": "cognitive_processing", "level": 2}
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "patient_id": "P001",
+  "demographics": {
+    "age": 58,
+    "sex": "M"
+  },
+  "chief_complaint": "Chest discomfort for the past 2 hours",
+  "symptoms": [
+    {
+      "text": "chest pain",
+      "cui": "C0008031",
+      "severity": "moderate",
+      "onset": "2 hours ago",
+      "duration": "ongoing"
+    },
+    {
+      "text": "shortness of breath",
+      "cui": "C0013404",
+      "severity": "mild"
+    },
+    {
+      "text": "diaphoresis",
+      "cui": "C0011991",
+      "severity": "mild"
+    }
+  ],
+  "medications": [
+    {
+      "text": "aspirin",
+      "cui": "C0004057",
+      "dose": "81mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "atorvastatin",
+      "cui": "C0286651",
+      "dose": "40mg",
+      "frequency": "daily"
+    },
+    {
+      "text": "metoprolol",
+      "cui": "C0025859",
+      "dose": "50mg",
+      "frequency": "BID"
+    }
+  ],
+  "conditions": [
+    {
+      "text": "hypertension",
+      "cui": "C0020538",
+      "diagnosed_year": 2015
+    },
+    {
+      "text": "hyperlipidemia",
+      "cui": "C0020473",
+      "diagnosed_year": 2018
+    },
+    {
+      "text": "coronary artery disease",
+      "cui": "C1956346",
+      "diagnosed_year": 2020
+    }
+  ],
+  "procedures": [
+    {
+      "text": "cardiac catheterization",
+      "cui": "C0018795",
+      "year": 2020,
+      "indication": "chest pain workup"
+    }
+  ],
+  "allergies": [
+    {
+      "text": "penicillin",
+      "cui": "C0030842",
+      "reaction": "rash"
+    }
+  ],
+  "noise_profile": [
+    {"type": "health_literacy", "level": 2},
+    {"type": "emotional_state", "level": 3}
+  ]
+}

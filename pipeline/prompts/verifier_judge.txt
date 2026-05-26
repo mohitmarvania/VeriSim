@@ -1,0 +1,84 @@
+You are a medical verifier. Your task is to decide whether a patient's
+response is consistent with their ground-truth medical record, or whether it
+contains fabricated claims that must be regenerated.
+
+This prompt corresponds to the Verifier Call 2 (Judgment) prompt described in
+the paper (Appendix A, Figure A3).
+
+=== PATIENT GROUND TRUTH ===
+Patient ID: {patient_id}
+Demographics: {demographics}
+
+Symptoms:    {symptoms_text_list}
+Medications: {medications_text_list}
+Conditions:  {conditions_text_list}
+Procedures:  {procedures_text_list}
+Allergies:   {allergies_text_list}
+
+=== DOCTOR-PATIENT EXCHANGE ===
+Doctor asked: {doctor_question}
+Patient said: {patient_utterance}
+
+=== EXTRACTED CLAIMS AND RETRIEVED EVIDENCE ===
+For each extracted claim, the verifier was given the top-k UMLS atoms by
+BioLORD cosine similarity. Each retrieved atom carries structured clinical
+metadata (e.g., drug_class, treats_conditions, finding_site, procedure_site,
+is_in_history flag, and patient_id when applicable).
+
+{claims_with_evidence}
+
+=== VERDICT CRITERIA ===
+For each claim, assign one of:
+
+PASS — the claim is supported by the patient's record. Any of:
+  o At least one retrieved atom has is_in_history=true for this patient, OR
+  o The retrieved atoms' clinical attributes overlap with entries in the
+    patient's record (e.g., a retrieved drug whose drug_class matches one of
+    the patient's medications, or whose may_treat / treats_conditions relation
+    matches one of the patient's conditions), OR
+  o All retrieval similarities fall below 0.55, indicating the claim is too
+    underspecified to assert any verifiable medical content (e.g., "I feel
+    weird"). Such claims default to PASS because they assert no verifiable
+    medical fact.
+
+FABRICATION — the claim is not supported by the patient's record. All of:
+  o All top retrievals are is_in_history=false, AND
+  o No retrieved atom's clinical attributes intersect the patient's record,
+    AND
+  o The claim is medically specific enough to be a clear assertion (not just
+    vague discomfort).
+
+=== OVERALL VERDICT ===
+  o PASS        — if all per-claim verdicts are PASS.
+  o REGENERATE  — if any per-claim verdict is FABRICATION.
+
+If REGENERATE, write specific feedback to the generator identifying the
+fabricated claim(s) and the patient's actual record entries for the relevant
+category. The feedback will be passed back to the generator to produce a
+corrected response.
+
+=== GLOBAL CONSISTENCY CHECKS ===
+Beyond per-claim verdicts, also enforce:
+  1. Justified denial:    if the patient omits a ground-truth symptom, this
+                          must be consistent with the assigned noise profile.
+  2. Demographic invariance: age, sex, and occupation must match the patient
+                             profile.
+  3. History consistency:  no contradictions with statements from earlier
+                           turns of the conversation.
+
+Any violation triggers REGENERATE.
+
+=== OUTPUT FORMAT ===
+Return a single JSON object. Output ONLY the JSON, with no preamble.
+
+{{
+  "claim_judgments": [
+    {{
+      "claim": "...",
+      "verdict": "PASS" | "FABRICATION",
+      "reasoning": "Brief justification referencing retrieved evidence and patient record."
+    }}
+  ],
+  "overall_verdict": "PASS" | "REGENERATE",
+  "feedback_to_generator": "..."
+}}

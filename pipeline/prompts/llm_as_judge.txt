@@ -1,0 +1,37 @@
+You are an expert clinical evaluator assessing the quality of a simulated
+patient interaction.
+
+This prompt corresponds to the LLM-as-Judge prompt described in the paper
+(Appendix A, Figure A5). It is used to evaluate completed conversations
+against four criteria (Truth Preservation, Realism Assessment, Clinical
+Utility, Noise Fidelity) to scale evaluation beyond the human-annotated set.
+
+=== EVALUATION DATA ===
+Patient ground-truth record:
+  o Symptoms:    {patient_symptoms}
+  o Medications: {patient_medications}
+  o Conditions:  {patient_conditions}
+  o Procedures:  {patient_procedures}
+  o Allergies:   {patient_allergies}
+
+Assigned noise profile: {noise_profile}
+Transcript: {transcript}
+
+=== TARGET CRITERION ===
+Criterion: {criterion_name}
+Definition: {criterion_definition}
+Scale: 1 (Poor) to 5 (Excellent)
+
+=== TASK ===
+Analyze the conversation systematically. Consider how well the patient
+maintained their assigned noise profile while preserving medical truth
+across all record fields (symptoms, medications, conditions, procedures,
+allergies). Provide a score with detailed justification.
+
+=== OUTPUT FORMAT ===
+Return a single JSON object. Output ONLY the JSON, with no preamble.
+
+{{
+  "reasoning": "[step-by-step analysis grounded in specific turns of the transcript]",
+  "score": [integer 1-5]
+}}

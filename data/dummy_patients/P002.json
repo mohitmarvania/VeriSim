@@ -1,0 +1,81 @@
+{
+  "patient_id": "P002",
+  "demographics": {
+    "age": 24,
+    "sex": "F"
+  },
+  "chief_complaint": "Worsening shortness of breath and wheezing over 12 hours",
+  "symptoms": [
+    {
+      "text": "dyspnea",
+      "cui": "C0013404",
+      "severity": "moderate",
+      "onset": "12 hours ago",
+      "duration": "worsening"
+    },
+    {
+      "text": "wheezing",
+      "cui": "C0043144",
+      "severity": "moderate"
+    },
+    {
+      "text": "cough",
+      "cui": "C0010200",
+      "severity": "mild"
+    },
+    {
+      "text": "chest tightness",
+      "cui": "C0232292",
+      "severity": "mild"
+    }
+  ],
+  "medications": [
+    {
+      "text": "albuterol",
+      "cui": "C0001927",
+      "dose": "90mcg/puff",
+      "frequency": "as needed"
+    },
+    {
+      "text": "fluticasone",
+      "cui": "C0061851",
+      "dose": "110mcg",
+      "frequency": "BID"
+    },
+    {
+      "text": "montelukast",
+      "cui": "C0246828",
+      "dose": "10mg",
+      "frequency": "daily"
+    }
+  ],
+  "conditions": [
+    {
+      "text": "asthma",
+      "cui": "C0004096",
+      "diagnosed_year": 2010
+    },
+    {
+      "text": "allergic rhinitis",
+      "cui": "C0018621",
+      "diagnosed_year": 2012
+    }
+  ],
+  "procedures": [],
+  "allergies": [
+    {
+      "text": "pollen",
+      "cui": "C0032386",
+      "reaction": "rhinitis"
+    },
+    {
+      "text": "cat dander",
+      "cui": "C0850666",
+      "reaction": "wheezing"
+    }
+  ],
+  "noise_profile": [
+    {"type": "communication_style", "level": 1},
+    {"type": "social_cultural", "level": 2}
+  ]
+}
