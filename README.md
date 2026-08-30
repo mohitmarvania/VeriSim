@@ -16,9 +16,6 @@ verifier emits feedback that triggers regeneration of the patient turn
 (up to two attempts). The pipeline produces noisy but ground-truth-adherent
 synthetic doctor-patient transcripts.
 
-## Anonymity statement
-This repository is anonymized for double-blind review.
-
 ## Quick start
 
 ```bash
